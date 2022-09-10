@@ -2,6 +2,7 @@ package main
 
 import (
 	"Ecommerce-Product-Manager/pkg/config"
+	"Ecommerce-Product-Manager/pkg/handlers"
 	"fmt"
 	"os"
 )
@@ -16,5 +17,5 @@ func init() {
 
 func main() {
 	config.Logger.Info("Application has started")
-	fmt.Println("hello")
+	handlers.Start()
 }

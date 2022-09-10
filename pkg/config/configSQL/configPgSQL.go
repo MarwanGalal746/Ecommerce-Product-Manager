@@ -24,10 +24,10 @@ func (pg *ConfigPgSQL) Config() (*gorm.DB, error) {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	err = gormDb.Migrator().DropTable(&models.Product{}, &models.Country{}, &models.Stocks{})
-	if err != nil {
-		panic(err)
-	}
+	//err = gormDb.Migrator().DropTable(&models.Product{}, &models.Country{}, &models.Stocks{})
+	//if err != nil {
+	//	panic(err)
+	//}
 	err = gormDb.AutoMigrate(&models.Product{}, &models.Country{}, &models.Stocks{})
 	if err != nil {
 		panic(err)
