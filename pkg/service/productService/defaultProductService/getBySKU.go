@@ -1,7 +1,11 @@
 package defaultProductService
 
-import "Ecommerce-Product-Manager/pkg/domain/repositories/productRepository"
+import (
+	"Ecommerce-Product-Manager/pkg/domain/models"
+)
 
-func NewDefaultProductService(repo productRepository.ProductRepositoryDb) DefaultProductService {
-	return DefaultProductService{Repo: repo}
+func (productService DefaultProductService) Get(sku string) (models.Product, error) {
+	var product models.Product
+	product.SKU = sku
+	return productService.Repo.Get(product)
 }

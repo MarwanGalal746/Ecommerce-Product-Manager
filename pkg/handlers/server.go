@@ -13,6 +13,8 @@ func Start() {
 		Service: defaultProductService.NewDefaultProductService(defaultProductRepository.DefaultProductRepositoryDb{})}
 
 	router.GET("/get/:sku", productHandler.Get)
+	router.POST("/consume/:sku/:country/:stock", productHandler.ConsumeStock)
+
 	router.Run(":8888")
 
 }
