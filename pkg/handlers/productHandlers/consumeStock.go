@@ -22,18 +22,18 @@ func (productHandler ProductHandlers) ConsumeStock(c *gin.Context) {
 		json.NewEncoder(c.Writer).Encode(errs.NewResponse(errs.ErrDb.Error(), http.StatusInternalServerError))
 		return
 
-	} else if err != nil && err.Error() == errs.ErrProductNotAvailableInThisCountry.Error() {
-		config.Logger.Error(errs.ErrDb.Error())
+	} else if err != nil && err.Error() == errs.ErrStockFromProductNotAvailableInThisCountry.Error() {
+		config.Logger.Error(errs.ErrStockFromProductNotAvailableInThisCountry.Error())
 		config.Logger.Debug("API response status code is " + http.StatusText(http.StatusOK))
 		c.Writer.WriteHeader(http.StatusOK)
-		json.NewEncoder(c.Writer).Encode(errs.NewResponse(errs.ErrDb.Error(), http.StatusInternalServerError))
+		json.NewEncoder(c.Writer).Encode(errs.NewResponse(errs.ErrStockFromProductNotAvailableInThisCountry.Error(), http.StatusInternalServerError))
 		return
 
 	} else if err != nil {
-		config.Logger.Error(errs.ErrDb.Error())
+		config.Logger.Error(err.Error())
 		config.Logger.Debug("API response status code is " + http.StatusText(http.StatusInternalServerError))
 		c.Writer.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(c.Writer).Encode(errs.NewResponse(errs.ErrDb.Error(), http.StatusInternalServerError))
+		json.NewEncoder(c.Writer).Encode(errs.NewResponse(err.Error(), http.StatusInternalServerError))
 		return
 
 	}

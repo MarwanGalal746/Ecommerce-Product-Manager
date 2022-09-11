@@ -21,10 +21,10 @@ func (productHandler ProductHandlers) Update(c *gin.Context) {
 		return
 
 	} else if err != nil {
-		config.Logger.Error(errs.ErrDb.Error())
+		config.Logger.Error(err.Error())
 		config.Logger.Debug("API response status code is " + http.StatusText(http.StatusInternalServerError))
 		c.Writer.WriteHeader(http.StatusInternalServerError)
-		json.NewEncoder(c.Writer).Encode(errs.NewResponse(errs.ErrDb.Error(), http.StatusInternalServerError))
+		json.NewEncoder(c.Writer).Encode(errs.NewResponse(err.Error(), http.StatusInternalServerError))
 		return
 	}
 	c.Writer.WriteHeader(http.StatusOK)
