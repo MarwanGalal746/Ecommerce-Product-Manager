@@ -14,6 +14,7 @@ func Start() {
 
 	router.GET("/get/:sku", productHandler.Get)
 	router.POST("/consume/:sku/:country/:stock", productHandler.ConsumeStock)
+	go router.POST("/update", productHandler.Update)
 
 	router.Run(":8888")
 
