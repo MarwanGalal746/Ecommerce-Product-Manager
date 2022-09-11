@@ -17,5 +17,6 @@ func init() {
 
 func main() {
 	config.Logger.Info("Application has started")
-	handlers.Start()
+	server := handlers.Server{}
+	server.Start()
 }

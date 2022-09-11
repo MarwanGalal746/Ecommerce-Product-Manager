@@ -1,4 +1,4 @@
-package productHandlers
+package defaultProductHandlers
 
 import (
 	"Ecommerce-Product-Manager/pkg/config"
@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func (productHandler ProductHandlers) Update(c *gin.Context) {
+func (productHandler DefaultProductHandlers) Update(c *gin.Context) {
 	reader := csv.NewReader(c.Request.Body)
 	err := productHandler.Service.UpdateByCSV(reader)
 	config.Logger.Info("extracting CSV file from request")

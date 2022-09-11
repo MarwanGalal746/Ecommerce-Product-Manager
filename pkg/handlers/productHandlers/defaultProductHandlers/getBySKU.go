@@ -1,4 +1,4 @@
-package productHandlers
+package defaultProductHandlers
 
 import (
 	"Ecommerce-Product-Manager/pkg/config"
@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func (productHandler ProductHandlers) Get(c *gin.Context) {
+func (productHandler DefaultProductHandlers) Get(c *gin.Context) {
 	product, err := productHandler.Service.Get(c.Param("sku"))
 	config.Logger.Info("extracting product sku from request")
 	if err != nil && err.Error() == errs.ErrDb.Error() {

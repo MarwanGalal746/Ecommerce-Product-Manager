@@ -1,4 +1,4 @@
-package productHandlers
+package defaultProductHandlers
 
 import (
 	"Ecommerce-Product-Manager/pkg/config"
@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func (productHandler ProductHandlers) ConsumeStock(c *gin.Context) {
+func (productHandler DefaultProductHandlers) ConsumeStock(c *gin.Context) {
 	err := productHandler.Service.ConsumeStock(c.Param("sku"),
 		c.Param("country"), c.Param("stock"))
 	config.Logger.Info("extracting product SKU, country which product should be " +

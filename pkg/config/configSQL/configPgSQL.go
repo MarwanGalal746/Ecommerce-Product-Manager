@@ -9,6 +9,7 @@ import (
 )
 
 type ConfigPgSQL struct {
+	SQLdb *gorm.DB
 }
 
 func (pg *ConfigPgSQL) Config() (*gorm.DB, error) {
