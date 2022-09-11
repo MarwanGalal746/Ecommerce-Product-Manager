@@ -9,7 +9,7 @@ import (
 
 func (productRepositoryDb DefaultProductRepositoryDb) Get(product models.Product) (models.Product, error) {
 	config.Logger.Debug("doing a database query to get the product by SKU")
-	rows, err := config.SQLdb.Raw(`SELECT p.name As product_name,
+	rows, err := productRepositoryDb.SQLdb.Raw(`SELECT p.name As product_name,
        c.name AS country_name,
        s.amount AS stock
 FROM products p

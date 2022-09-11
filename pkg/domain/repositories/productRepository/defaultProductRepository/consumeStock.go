@@ -9,7 +9,7 @@ import (
 func (productRepositoryDb DefaultProductRepositoryDb) ConsumeStock(product models.Product) error {
 	config.Logger.Debug("doing a database query to get the product," +
 		" its available stocks and country it available in")
-	rows, err := config.SQLdb.Raw(`SELECT p.id As product_id,
+	rows, err := productRepositoryDb.SQLdb.Raw(`SELECT p.id As product_id,
        p.name As product_name,
        c.id As country_id,
        c.name AS country_name,
@@ -36,7 +36,7 @@ Where p.sku=? and c.name=?`, product.SKU, product.Countries[0].Name).Rows()
 		config.Logger.Debug("no stock available from this product in this country")
 		return errs.ErrStockFromProductNotAvailableInThisCountry
 	}
-	row, err := config.SQLdb.Raw(`UPDATE stocks
+	row, err := productRepositoryDb.SQLdb.Raw(`UPDATE stocks
 SET amount=?
 WHERE stocks.product_id=? and stocks.country_id=?`,
 		product.Countries[0].Stocks, wantedProduct.Id, wantedProduct.Countries[0].Id).Rows()
