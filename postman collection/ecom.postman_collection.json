@@ -55,14 +55,14 @@
 			"response": []
 		},
 		{
-			"name": "New Request",
+			"name": "update using CSV",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "file",
 					"file": {
-						"src": "/home/marwan/Projects/Ecommerce-Product-Manager/challenge_files/challenge_file_2.csv"
+						"src": "/home/marwan/Projects/Ecommerce-Product-Manager/challenge_files/challenge_file_1.csv"
 					}
 				},
 				"url": {
