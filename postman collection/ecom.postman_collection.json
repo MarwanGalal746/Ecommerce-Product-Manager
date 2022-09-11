@@ -1,0 +1,83 @@
+{
+	"info": {
+		"_postman_id": "fd77e66d-a6ba-4568-a1f9-050d43b2b79b",
+		"name": "ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13988041"
+	},
+	"item": [
+		{
+			"name": "get by sku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8888/get/5a",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"get",
+						"5a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "consume stock",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": ""
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/consume/5a/eg/11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"consume",
+						"5a",
+						"eg",
+						"11"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/home/marwan/Projects/Ecommerce-Product-Manager/challenge_files/challenge_file_2.csv"
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8888/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8888",
+					"path": [
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
